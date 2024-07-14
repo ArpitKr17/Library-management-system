@@ -8,6 +8,9 @@ class Author(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return self.first_name +" " + self.last_name
+    
 class User(models.Model):
     username=models.CharField(max_length=100,unique=True)
     email=models.EmailField(unique=True)
@@ -16,6 +19,9 @@ class User(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return self.first_name +" " + self.last_name
+    
 class Book(models.Model):
     title=models.CharField(max_length=100)
     isbn=models.CharField(max_length=100)
@@ -23,7 +29,10 @@ class Book(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     author=models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
-    user_borrowed=models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='books_borrowed')
+    user_borrowed=models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='books_borrowed')
+    
+    def __str__(self):
+        return self.title
     
     
     

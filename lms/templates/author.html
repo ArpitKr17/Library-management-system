@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+<h2 class="text-center">Authors</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Birth Date</th>
+      <th scope="col">Books Written</th>
+      <th scope="col">Update Author</th>
+      <th scope="col">Delete Author</th>
+    </tr>
+  </thead>
+  {% for author in authors %}
+  <tbody>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{author.first_name}} {{author.last_name}}</td>
+    <td>{{author.birthdate}}</td>
+    <td><a href="{% url 'booksWritten' author.id %}">Books Written</a></td>
+    <td><a href="{% url 'updateAuthor' author.id %}">Update Author</a></td>
+    <td><a href="{% url 'deleteAuthor' author.id %}">Delete Author</a></td>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

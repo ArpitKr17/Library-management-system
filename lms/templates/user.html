@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+<h2 class="text-center">Users</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Books Borrowed</th>
+      <th scope="col">Update User</th>
+      <th scope="col">Delete User</th>
+    </tr>
+  </thead>
+  {% for user in users %}
+  <tbody>
+    <th scope="row">{{ forloop.counter }}</th>
+    <td>{{ user.first_name }} {{ user.last_name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.username }}</td>
+    <td><a href="{% url 'booksBorrowed' user.id %}">Books</a></td>
+    <td><a href="{% url 'updateUser' user.id %}">Update User</a></td>
+    <td><a href="{% url 'deleteUser' user.id %}">Delete User</a></td>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}

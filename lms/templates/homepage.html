@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+
+<h2 class="text-center">Books</h2>
+<hr />
+
+<div class="row">
+  {% for book in books %}
+  <div class="col-md-3 mb-4">
+    <!-- Each book card takes 3 columns on medium screens -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ book.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Author: {{ book.author }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Published Date: {{ book.published_date }}
+        </h6>
+        <h6 class="card-subtitle mb-2 text-muted">ISBN: {{ book.isbn }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Borrowed by: {{ book.user_borrowed }}
+        </h6>
+        <a href="{% url 'deleteBook' book.id %}" class="card-link"
+          >Delete Book</a
+        >
+        <a href="{% url 'updateBook' book.id %}" class="card-link"
+          >Update Book</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
