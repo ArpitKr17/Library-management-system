@@ -25,7 +25,7 @@ class User(models.Model):
 class Book(models.Model):
     title=models.CharField(max_length=100)
     isbn=models.CharField(max_length=100)
-    published_date=models.DateField()
+    published_date=models.DateField(db_index=True)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     author=models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
