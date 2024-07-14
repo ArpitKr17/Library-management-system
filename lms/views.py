@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from lms.models import Book, Author, User
 from .forms import AuthorForm, UserForm, BookForm
+from lms.signals import book_add_signal, book_borrow_signal
 
 def home(request):
     return render(request, 'homepage.html')
@@ -39,6 +40,7 @@ def add_book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
+            book_add_signal.send(sender=Book)
             return redirect('getBook')
     else:
         form = BookForm()
@@ -68,8 +70,11 @@ def delete_book(request,id):
 
 def update_book(request, id):
     book=Book.objects.get(id=id)
-    
+    user_borrowed=book.user_borrowed.id
     if request.method=='POST':
+        updated_user_borrowed=request.POST['user_borrowed']
+        if updated_user_borrowed!=user_borrowed:
+            book_borrow_signal.send(sender=Book)
         form=BookForm(request.POST, instance=book)
         if form.is_valid():
             form.save()
