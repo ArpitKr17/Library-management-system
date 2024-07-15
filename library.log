@@ -1,0 +1,18 @@
+(0.000) SELECT "lms_book"."id", "lms_book"."title", "lms_book"."isbn", "lms_book"."published_date", "lms_book"."created_at", "lms_book"."updated_at", "lms_book"."author_id", "lms_book"."user_borrowed_id" FROM "lms_book" WHERE "lms_book"."id" = 29 LIMIT 21; args=(29,); alias=default
+(0.000) SELECT "lms_user"."id", "lms_user"."username", "lms_user"."email", "lms_user"."first_name", "lms_user"."last_name", "lms_user"."created_at", "lms_user"."updated_at" FROM "lms_user" WHERE "lms_user"."id" = 9 LIMIT 21; args=(9,); alias=default
+(0.000) SELECT "lms_author"."id", "lms_author"."first_name", "lms_author"."last_name", "lms_author"."birthdate", "lms_author"."created_at", "lms_author"."updated_at" FROM "lms_author"; args=(); alias=default
+(0.000) SELECT "lms_user"."id", "lms_user"."username", "lms_user"."email", "lms_user"."first_name", "lms_user"."last_name", "lms_user"."created_at", "lms_user"."updated_at" FROM "lms_user"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-07-15 03:27:29.574255' AND "django_session"."session_key" = 'e4q83jxna0x453c6oop9gbjjmmtcaucl') LIMIT 21; args=('2024-07-15 03:27:29.574255', 'e4q83jxna0x453c6oop9gbjjmmtcaucl'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+Endpoint: /update_book/29, Method: GET, User: arpit
+GET /update_book/29 200
+"GET /update_book/29 HTTP/1.1" 200 4070
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1719892414.1543803
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1719892414.654624
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1719892414.1376145
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1719892412.5881522
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\template\context_processors.py first seen with mtime 1719892415.6383445
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1719892414.154773
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1719892414.154773
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\conf\locale\en\__init__.py first seen with mtime 1719892411.1604517
+File C:\Users\AK31R\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\conf\locale\en\formats.py first seen with mtime 1719892411.1604517
